@@ -3,11 +3,16 @@
 ---
 
 ## 1. 📌 Project Overview
-The **Sales Analysis System** is a data-driven project designed to analyze sales data and generate meaningful insights using:
-* **SQL (via SQLite)** → Data storage & querying
-* **Pandas** → Data manipulation & analysis
-* **NumPy** → Numerical computations
-* **Matplotlib & Seaborn** → Data visualizations
+The **Sales Analysis System** is a data-driven full-stack analytics project designed to analyze sales data and generate meaningful insights. The architecture is divided into two main components:
+
+### 🖥️ Frontend (User Interface)
+* **Streamlit** → Interactive web dashboard for displaying dynamic reports and insights.
+
+### ⚙️ Backend & Data Processing
+* **SQL (via SQLite)** → Data storage, querying, and database management.
+* **Pandas** → Data manipulation & advanced analysis.
+* **NumPy** → Numerical computations and KPI calculations.
+* **Matplotlib & Seaborn** → Data visualizations (rendered in the frontend).
 
 🎯 **Goal:** Help businesses understand sales trends, customer behavior, and performance metrics to make better decisions.
 
@@ -71,7 +76,8 @@ The script generates `.png` files for reports:
 
 ## 5. 🎯 Conclusion
 This project demonstrates:
-* **SQL skills** → Data querying (using `sqlite3` built-in module)
+* **Frontend Development** → Interactive web dashboards using Streamlit
+* **Backend & SQL skills** → Data querying (using `sqlite3` built-in module)
 * **Pandas skills** → Data manipulation
 * **NumPy skills** → Numerical analysis
 * **Data Visualization** → Chart creation via Matplotlib & Seaborn
