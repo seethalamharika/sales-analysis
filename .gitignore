@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# Database
+*.db
+sales_system.db
+
+# Output visual folders (Optional, you can remove this if you want to push charts)
+dashboard_visuals/

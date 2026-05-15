@@ -1,0 +1,51 @@
+customer_id,name,city,segment
+1,Customer_1,San Antonio,Home Office
+2,Customer_2,Houston,Home Office
+3,Customer_3,San Diego,Corporate
+4,Customer_4,Phoenix,Consumer
+5,Customer_5,San Antonio,Corporate
+6,Customer_6,San Jose,Corporate
+7,Customer_7,Chicago,Corporate
+8,Customer_8,San Antonio,Corporate
+9,Customer_9,San Diego,Corporate
+10,Customer_10,Phoenix,Corporate
+11,Customer_11,Houston,Corporate
+12,Customer_12,San Diego,Consumer
+13,Customer_13,San Diego,Home Office
+14,Customer_14,Chicago,Corporate
+15,Customer_15,Philadelphia,Corporate
+16,Customer_16,Phoenix,Corporate
+17,Customer_17,Los Angeles,Corporate
+18,Customer_18,San Diego,Corporate
+19,Customer_19,Philadelphia,Corporate
+20,Customer_20,Los Angeles,Home Office
+21,Customer_21,Phoenix,Home Office
+22,Customer_22,New York,Corporate
+23,Customer_23,San Jose,Home Office
+24,Customer_24,Philadelphia,Consumer
+25,Customer_25,Dallas,Corporate
+26,Customer_26,New York,Consumer
+27,Customer_27,San Jose,Consumer
+28,Customer_28,Chicago,Corporate
+29,Customer_29,San Antonio,Home Office
+30,Customer_30,Houston,Consumer
+31,Customer_31,Dallas,Corporate
+32,Customer_32,Chicago,Consumer
+33,Customer_33,Phoenix,Consumer
+34,Customer_34,Chicago,Consumer
+35,Customer_35,San Antonio,Consumer
+36,Customer_36,Phoenix,Home Office
+37,Customer_37,Dallas,Consumer
+38,Customer_38,San Antonio,Consumer
+39,Customer_39,Los Angeles,Consumer
+40,Customer_40,Houston,Home Office
+41,Customer_41,Dallas,Consumer
+42,Customer_42,Los Angeles,Consumer
+43,Customer_43,San Jose,Home Office
+44,Customer_44,Dallas,Home Office
+45,Customer_45,San Jose,Home Office
+46,Customer_46,Phoenix,Consumer
+47,Customer_47,Los Angeles,Home Office
+48,Customer_48,Houston,Home Office
+49,Customer_49,San Antonio,Consumer
+50,Customer_50,San Diego,Home Office
