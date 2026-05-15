@@ -22,6 +22,11 @@ def load_data():
         # Preprocessing
         sales['sale_date'] = pd.to_datetime(sales['sale_date'])
         sales['month'] = sales['sale_date'].dt.to_period('M').astype(str)
+        
+        # Convert Dollars to Rupees (1 USD ~ 83.5 INR)
+        sales['revenue'] = sales['revenue'] * 83.5
+        products['price'] = products['price'] * 83.5
+        
         return sales, products, customers
     except Exception as e:
         st.error("Database not found! Please run `python generate_data.py` and `python sales_analysis.py` first.")
@@ -40,9 +45,9 @@ if not sales.empty:
     avg_order_value = sales['revenue'].mean()
     
     col1, col2, col3 = st.columns(3)
-    col1.metric("Total Revenue", f"${total_revenue:,.2f}")
+    col1.metric("Total Revenue", f"₹{total_revenue:,.2f}")
     col2.metric("Total Orders", f"{total_orders:,}")
-    col3.metric("Average Order Value", f"${avg_order_value:,.2f}")
+    col3.metric("Average Order Value", f"${avg_order_value / 83.5:,.2f}")
     
     st.divider()
 
@@ -55,7 +60,7 @@ if not sales.empty:
         fig, ax = plt.subplots(figsize=(8, 4))
         sns.lineplot(data=monthly_sales, x='month', y='revenue', marker='o', ax=ax, color='b')
         plt.xticks(rotation=45)
-        ax.set_ylabel("Revenue ($)")
+        ax.set_ylabel("Revenue (₹)")
         ax.set_xlabel("Month")
         st.pyplot(fig)
 
@@ -67,7 +72,7 @@ if not sales.empty:
         
         fig, ax = plt.subplots(figsize=(8, 4))
         sns.barplot(data=top_products, x='revenue', y='product_name', palette='viridis', hue='product_name', legend=False, ax=ax)
-        ax.set_xlabel("Revenue ($)")
+        ax.set_xlabel("Revenue (₹)")
         ax.set_ylabel("")
         st.pyplot(fig)
         
@@ -91,7 +96,7 @@ if not sales.empty:
         fig, ax = plt.subplots(figsize=(8, 4))
         sns.barplot(data=segment_sales, x='segment', y='revenue', palette='magma', hue='segment', legend=False, ax=ax)
         ax.set_xlabel("Customer Segment")
-        ax.set_ylabel("Revenue ($)")
+        ax.set_ylabel("Revenue (₹)")
         st.pyplot(fig)
         
     st.divider()

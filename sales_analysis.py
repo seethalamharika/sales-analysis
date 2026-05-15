@@ -36,13 +36,13 @@ def execute_sql_queries(conn):
     print("--- 1. SQL Queries ---")
     
     # Query 1: Total Sales
-    query_total_sales = "SELECT SUM(revenue) AS total_revenue FROM Sales;"
+    query_total_sales = "SELECT SUM(revenue) * 83.5 AS total_revenue FROM Sales;"
     total_sales = pd.read_sql_query(query_total_sales, conn)
-    print(f"Total Revenue (SQL):\n${total_sales['total_revenue'].iloc[0]:,.2f}\n")
+    print(f"Total Revenue (SQL):\n₹{total_sales['total_revenue'].iloc[0]:,.2f}\n")
     
     # Query 2: Top 5 Products
     query_top_products = """
-    SELECT product_id, SUM(revenue) AS total
+    SELECT product_id, SUM(revenue) * 83.5 AS total
     FROM Sales
     GROUP BY product_id
     ORDER BY total DESC
@@ -66,9 +66,12 @@ def pandas_numpy_analysis():
     sales['sale_date'] = pd.to_datetime(sales['sale_date'])
     sales.drop_duplicates(inplace=True)
     
+    sales['revenue'] = sales['revenue'] * 83.5
+    products['price'] = products['price'] * 83.5
+    
     # 1. Total Revenue
     total_revenue = sales['revenue'].sum()
-    print(f"Total Revenue (Pandas): ${total_revenue:,.2f}")
+    print(f"Total Revenue (Pandas): ₹{total_revenue:,.2f}")
     
     # 2. Monthly Sales Trend
     sales['month'] = sales['sale_date'].dt.to_period('M')
@@ -111,7 +114,7 @@ def generate_visualizations(sales, merged_sales, products, monthly_sales):
     monthly_sales.plot(kind='line', marker='o', color='b')
     plt.title("Monthly Sales Trend")
     plt.xlabel("Month")
-    plt.ylabel("Revenue ($)")
+    plt.ylabel("Revenue (₹)")
     plt.grid(True)
     plt.tight_layout()
     plt.savefig('dashboard_visuals/monthly_sales_trend.png')
@@ -124,7 +127,7 @@ def generate_visualizations(sales, merged_sales, products, monthly_sales):
     plt.figure(figsize=(10, 5))
     sns.barplot(x='revenue', y='product_name', data=top_10_named, hue='product_name', palette='viridis', legend=False)
     plt.title("Top 10 Products by Revenue")
-    plt.xlabel("Revenue ($)")
+    plt.xlabel("Revenue (₹)")
     plt.ylabel("Product")
     plt.tight_layout()
     plt.savefig('dashboard_visuals/top_10_products.png')
